@@ -9,10 +9,10 @@ class ComputerPlayer
         @board = board
         @mark = mark
         
-        if imminent_loss?
-            prevent_loss
-        elsif winnable?
+        if winnable?
             winning_move
+        elsif imminent_loss?
+            prevent_loss
         else
             random_move
         end
@@ -37,7 +37,6 @@ class ComputerPlayer
                     return true
                 end
                 board.undo_move(i, other_mark)
-              break
             else
                 next
             end
